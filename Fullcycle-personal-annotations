@@ -1,0 +1,38 @@
+Fullcycle
+
+ao instalar o php na máquina local é preciso instalar outras duas bibliotecas para funcionar o lavarel
+
+
+sudo apt install php7.4-cli
+sudo apt-get install php-mbstring
+sudo apt-get install php7.*-xml
+
+para instalar o lavarel é preciso:
+
+Baixar o arquivo em:
+~/Downloads/composer.phar
+
+#Copiar para
+sudo cp composer.phar /usr/local/bin/composer
+
+#criar o container como
+docker run -d --name laravel -v $(pwd):/var/www -p 8000:8000 jcjesus/laravel
+
+#instalar o bash
+
+docker exec -it laravel apk add bash
+
+#acessar com o bash
+docker exec -it laravel bash
+
+#acessar a pasta
+cd /var/www
+
+#configurar a chave de segurança
+php artisan key:generate
+
+#rodar o artisan com host e porta
+php artisan --host=0.0.0.0
+
+#acessar o navegador
+http://localhost:8000
