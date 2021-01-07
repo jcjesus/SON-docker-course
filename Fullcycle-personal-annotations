@@ -1,5 +1,28 @@
 Fullcycle
 
+#Para conseguir trabalhar com o docker hub
+docker login
+
+#Listando os containers em execução
+docker container ls
+
+#Apagando as imagens
+docker rm $(docker ps -aq) -f
+
+#Docker build
+docker build -t jcjesus/laravel .
+
+#Executando a imagem
+docker run -d --name laravel -p 8000:8000 jcjesus/laravel
+
+#Verificando se a imagem está rodando
+docker ps
+
+#Instalando o bash com usuário root para evitar access denied
+docker exec -u root -it laravel apk add bash
+
+
+#Dica (Instalação do PHP)
 ao instalar o php na máquina local é preciso instalar outras duas bibliotecas para funcionar o lavarel
 
 
